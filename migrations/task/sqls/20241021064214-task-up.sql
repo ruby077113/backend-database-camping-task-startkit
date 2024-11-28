@@ -23,16 +23,17 @@ VALUES
   ('透明人', 'opacity0@hexschooltest.io', 'USER');
 
 -- 1-2 修改：用 Email 找到 李燕容、肌肉棒子、Q太郎，如果他的 Role 為 USER 將他的 Role 改為 COACH
--- UPDATE "USER"
--- SET
---   role = 'COACH'
--- WHERE
---   email IN (
---     'lee2000@hexschooltest.io',
---     'muscle@hexschooltest.io',
---     'starplatinum@hexschooltest.io'
---   )
---   AND role = 'USER';
+UPDATE "USER"
+SET
+  role = 'COACH'
+WHERE
+  email IN (
+    'lee2000@hexschooltest.io',
+    'muscle@hexschooltest.io',
+    'starplatinum@hexschooltest.io'
+  )
+  AND role = 'USER';
+
 -- 1-3 刪除：刪除USER 資料表中，用 Email 找到透明人，並刪除該筆資料
 -- DELETE FROM "USER"
 -- WHERE
