@@ -63,68 +63,64 @@ LIMIT
 -- 1. 名稱為 `7 堂組合包方案`，價格為`1,400` 元，堂數為`7`
 -- 2. 名稱為`14 堂組合包方案`，價格為`2,520` 元，堂數為`14`
 -- 3. 名稱為 `21 堂組合包方案`，價格為`4,800` 元，堂數為`21`
-insert into
-  "CREDIT_PACKAGE" (name, credit_amount, price)
-values
-  ('7 堂組合包方案', 7, 1400),
-  ('14 堂組合包方案', 14, 2520),
-  ('21 堂組合包方案', 21, 4800);
-
+-- insert into
+--   "CREDIT_PACKAGE" (name, credit_amount, price)
+-- values
+--   ('7 堂組合包方案', 7, 1400),
+--   ('14 堂組合包方案', 14, 2520),
+--   ('21 堂組合包方案', 21, 4800);
 -- 2-2. 新增：在 `CREDIT_PURCHASE` 資料表，新增三筆資料：（請使用 name 欄位做子查詢）
 -- 1. `王小明` 購買 `14 堂組合包方案`
 -- 2. `王小明` 購買 `21 堂組合包方案`
 -- 3. `好野人` 購買 `14 堂組合包方案`'
-insert into
-  "CREDIT_PURCHASE" (
-    user_id,
-    credit_package_id,
-    purchased_credits,
-    price_paid
-  )
-select
-  u.id,
-  package.id,
-  package.credit_amount,
-  package.price
-from
-  "USER" as u
-  inner join "CREDIT_PACKAGE" as package on u.name = '王小明'
-  and package.name = '14 堂組合包方案';
-
-insert into
-  "CREDIT_PURCHASE" (
-    user_id,
-    credit_package_id,
-    purchased_credits,
-    price_paid
-  )
-select
-  u.id,
-  package.id,
-  package.credit_amount,
-  package.price
-from
-  "USER" as u
-  inner join "CREDIT_PACKAGE" as package on u.name = '王小明'
-  and package.name = '21 堂組合包方案';
-
-insert into
-  "CREDIT_PURCHASE" (
-    user_id,
-    credit_package_id,
-    purchased_credits,
-    price_paid
-  )
-select
-  u.id,
-  package.id,
-  package.credit_amount,
-  package.price
-from
-  "USER" as u
-  inner join "CREDIT_PACKAGE" as package on u.name = '好野人'
-  and package.name = '14 堂組合包方案';
-
+-- insert into
+--   "CREDIT_PURCHASE" (
+--     user_id,
+--     credit_package_id,
+--     purchased_credits,
+--     price_paid
+--   )
+-- select
+--   u.id,
+--   package.id,
+--   package.credit_amount,
+--   package.price
+-- from
+--   "USER" as u
+--   inner join "CREDIT_PACKAGE" as package on u.name = '王小明'
+--   and package.name = '14 堂組合包方案';
+-- insert into
+--   "CREDIT_PURCHASE" (
+--     user_id,
+--     credit_package_id,
+--     purchased_credits,
+--     price_paid
+--   )
+-- select
+--   u.id,
+--   package.id,
+--   package.credit_amount,
+--   package.price
+-- from
+--   "USER" as u
+--   inner join "CREDIT_PACKAGE" as package on u.name = '王小明'
+--   and package.name = '21 堂組合包方案';
+-- insert into
+--   "CREDIT_PURCHASE" (
+--     user_id,
+--     credit_package_id,
+--     purchased_credits,
+--     price_paid
+--   )
+-- select
+--   u.id,
+--   package.id,
+--   package.credit_amount,
+--   package.price
+-- from
+--   "USER" as u
+--   inner join "CREDIT_PACKAGE" as package on u.name = '好野人'
+--   and package.name = '14 堂組合包方案';
 -- ████████  █████   █    ████   
 --   █ █   ██    █  █         ██ 
 --   █ █████ ███ ███       ███   
